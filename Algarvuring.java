@@ -1,6 +1,6 @@
 class AlgarvuRing {
     public static void main(String[] args) {
-        algarvuRing(1000);
+        algarvuRing(1000000);
         System.out.println("Ragnar Kadai " + new java.sql.Timestamp(System.currentTimeMillis()));
     }
     static boolean shuffle(int arv) {
