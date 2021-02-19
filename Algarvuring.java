@@ -1,6 +1,6 @@
 import java.util.Scanner;
-
 class AlgarvuRing{
+
 
     public static void main(String[] args){
         Scanner loeb = new Scanner(System.in);
@@ -15,14 +15,15 @@ class AlgarvuRing{
             }
         }
         System.out.println("Ragnar Kadai "  + new java.sql.Timestamp(System.currentTimeMillis()));
+    }
 
-    }//main
+
     static boolean shuffle(int uusarv) {
         int x = String.valueOf(uusarv).length();
-        boolean edasi = true;
         int arv = uusarv;
+        boolean edasi = true;
         for (int i = 0; i < x; i++) {
-            if (check(arv)) {
+            if (check(arv) && uusarv >= arv) {
                 int viimane = uusarv % 10;
                 int esimene = uusarv / 10;
                 int oige = esimene + viimane * (int) Math.pow(10, (int) Math.log10(uusarv));
@@ -30,30 +31,34 @@ class AlgarvuRing{
                 check(oige);
             } else {
                 edasi = false;
-                break;
+                return false;
             }
         }
         if (edasi) {
             System.out.println(uusarv);
             return true;
         }
-        return edasi;
+        return false;
     }
+
+
     static boolean check(int arv) {
-        boolean algarv = false;
+        boolean mittealgarv = false;
         for (int i = 2; i <= arv / 2; ++i) {
             if (arv % i == 0) {
-                algarv = true;
+                mittealgarv = true;
                 break;
             }
         }
-        if (!algarv) {
+        if (!mittealgarv) {
             return true;
         }
         else {
             return false;
         }
     }
+
+
     public static void algarvuRing(int a){
         //a - algarvuringi leidmise l�htekoht
         //v�ljastab 5 l�himat algarvuringi antud l�htekohast a v�iksemate arvude hulgas
